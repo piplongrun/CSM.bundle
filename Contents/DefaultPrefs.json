@@ -1,0 +1,14 @@
+[
+	{
+		"id": "add_tagline",
+		"label": "Add short description as tagline",
+		"type": "bool",
+		"default": "false"
+	},
+	{
+		"id": "add_review",
+		"label": "Add Common Sense Media review to reviews",
+		"type": "bool",
+		"default": "false"
+	}
+]
