@@ -3,7 +3,7 @@ API_URL = 'https://tadata.me/csm/?imdb_id=%s' # %s = imdb id
 ####################################################################################################
 def Start():
 
-	HTTP.CacheTime = 0
+	HTTP.CacheTime = CACHE_1WEEK
 
 ####################################################################################################
 class CommonSenseMediaAgent(Agent.Movies):
