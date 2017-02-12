@@ -56,7 +56,7 @@ class CommonSenseMediaAgent(Agent.Movies):
 
 		# Content rating
 		if json_obj['recommended_age']:
-			metadata.content_rating = 'Common Sense %s' % (json_obj['recommended_age'])
+			metadata.content_rating = 'CSM %s' % (json_obj['recommended_age'])
 
 		# Add short description as tagline
 		if Prefs['add_tagline'] and json_obj['description']:
