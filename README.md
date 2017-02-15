@@ -1,6 +1,6 @@
 Common Sense Media
 ==================
-<img src="https://img.shields.io/github/release/piplongrun/CSM.bundle.png?style=flat-square">
+<img src="https://img.shields.io/github/release/piplongrun/CSM.bundle.png?style=flat-square"> <img src="https://img.shields.io/github/downloads/piplongrun/CSM.bundle/total.png?style=flat-square">
 
 What is Common Sense Media?
 ---------------------------
