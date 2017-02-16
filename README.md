@@ -1,6 +1,6 @@
 Common Sense Media
 ==================
-<img src="https://img.shields.io/github/release/piplongrun/CSM.bundle.png?style=flat-square"> <img src="https://img.shields.io/github/downloads/piplongrun/CSM.bundle/total.png?style=flat-square">
+<img src="https://img.shields.io/github/release/piplongrun/CSM.bundle.png?style=flat-square">
 
 What is Common Sense Media?
 ---------------------------
@@ -14,10 +14,10 @@ How do I install Common Sense Media?
 ------------------------------------
 You can install Common Sense Media:
 
- - From within the Unsupported App Store, or:
+ - From within the Unsupported AppStore, or:
  - Manually: See the support article "[How do I manually install a channel?](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-)" over at the Plex support website.
 
-Don't forget to activate the agent in Settings > Server > Agents after installing. Drag it all the way to the top of the list to prevent other agents from overruling the content rating.
+Don't forget to activate the agent in *Settings* > *Server* > *Agents* after installing. Drag it all the way to the top of the list to prevent other agents from overruling the content rating.
 
 Where do I download Common Sense Media?
 ---------------------------------------
