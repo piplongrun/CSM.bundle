@@ -1,4 +1,4 @@
-API_URL = 'https://tadata.me/csm/?imdb_id=%s' # %s = imdb id
+API_URL = 'https://tadata.me/csm/%s' # %s = imdb id
 
 ####################################################################################################
 def Start():
