@@ -1,9 +1,11 @@
+VERSION = '1.2'
 API_URL = 'https://tadata.me/csm/%s' # %s = imdb id
 
 ####################################################################################################
 def Start():
 
 	HTTP.CacheTime = CACHE_1WEEK
+	HTTP.Headers['User-Agent'] = 'CSM/%s (%s %s; Plex Media Server %s)' % (VERSION, Platform.OS, Platform.OSVersion, Platform.ServerVersion)
 
 ####################################################################################################
 class CommonSenseMediaAgent(Agent.Movies):
