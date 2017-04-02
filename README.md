@@ -34,5 +34,4 @@ Create an [issue on Github](https://github.com/piplongrun/CSM.bundle/issues) and
  - Primary agent and order of any secondary agents
  - Log files, `com.plexapp.agents.csm.log`
 
--
 <img src="https://raw.githubusercontent.com/piplongrun/CSM.bundle/master/Contents/Resources/icon-default.jpg" width="150">
