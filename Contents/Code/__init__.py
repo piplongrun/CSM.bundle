@@ -1,5 +1,5 @@
-VERSION = '1.2'
-API_URL = 'https://tadata.me/csm/%s' # %s = imdb id
+VERSION = '2.0'
+API_URL = 'https://api.tadata.me/csm/v2/?imdb_id=%s' # %s = imdb id
 
 ####################################################################################################
 def Start():
