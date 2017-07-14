@@ -50,11 +50,15 @@ class CommonSenseMediaAgent(Agent.Movies):
 			json_obj = JSON.ObjectFromURL(API_URL % (metadata.id), sleep=2.0)
 		except:
 			Log("*** Failed retrieving data from %s"  % (API_URL % (metadata.id)))
-			return None
+			return
 
 		if 'error' in json_obj:
 			Log('*** An error occurred: %s' % (json_obj['error']))
-			return None
+
+			if Prefs['set_unrated'] and json_obj['error'] == 'No matches found.':
+				metadata.content_rating = 'CSM Unrated'
+
+			return
 
 		# Content rating
 		if json_obj['recommended_age']:
