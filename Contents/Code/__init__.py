@@ -1,11 +1,17 @@
-VERSION = '2.1'
+import certifi
+import requests
+
+VERSION = '3.0'
 API_URL = 'https://api.tadata.me/csm/v2/?imdb_id=%s' # %s = imdb id
+
+HTTP_HEADERS = {
+	"User-Agent": "CSM/%s (%s %s; Plex Media Server %s)" % (VERSION, Platform.OS, Platform.OSVersion, Platform.ServerVersion)
+}
 
 ####################################################################################################
 def Start():
 
-	HTTP.CacheTime = CACHE_1WEEK
-	HTTP.Headers['User-Agent'] = 'CSM/%s (%s %s; Plex Media Server %s)' % (VERSION, Platform.OS, Platform.OSVersion, Platform.ServerVersion)
+	pass
 
 ####################################################################################################
 class CommonSenseMediaAgent(Agent.Movies):
@@ -46,35 +52,31 @@ class CommonSenseMediaAgent(Agent.Movies):
 
 	def update(self, metadata, media, lang):
 
-		try:
-			json_obj = JSON.ObjectFromURL(API_URL % (metadata.id), sleep=2.0)
-		except:
-			Log("*** Failed retrieving data from %s"  % (API_URL % (metadata.id)))
-			return
+		r = requests.get(API_URL % (metadata.id), headers=HTTP_HEADERS, verify=certifi.where())
 
-		if 'error' in json_obj:
-			Log('*** An error occurred: %s' % (json_obj['error']))
+		if 'error' in r.json():
+			Log("*** An error occurred: %s ***" % (r.json()['error']))
 
-			if Prefs['set_unrated'] and json_obj['error'] == 'No matches found.':
+			if Prefs['set_unrated'] and r.json()['error'] == 'No matches found.':
 				metadata.content_rating = 'CSM Unrated'
 
 			return
 
 		# Content rating
-		if json_obj['recommended_age']:
-			metadata.content_rating = 'CSM %s' % (json_obj['recommended_age'])
+		if r.json()['recommended_age']:
+			metadata.content_rating = 'CSM %s' % (r.json()['recommended_age'])
 
 		# Add short description as tagline
-		if Prefs['add_tagline'] and json_obj['description']:
-			metadata.tagline = json_obj['description']
+		if Prefs['add_tagline'] and r.json()['description']:
+			metadata.tagline = r.json()['description']
 		else:
 			metadata.tagline = None
 
 		# Add Common Sense Media review to reviews
 		metadata.reviews.clear()
 
-		if Prefs['add_review'] and json_obj['review']:
+		if Prefs['add_review'] and r.json()['review']:
 
 			review = metadata.reviews.new()
 			review.source = 'Common Sense Media'
-			review.text = json_obj['review']
+			review.text = r.json()['review']
