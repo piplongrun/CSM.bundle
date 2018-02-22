@@ -1,7 +1,7 @@
 import certifi
 import requests
 
-VERSION = '3.0'
+VERSION = '3.1'
 API_URL = 'https://api.tadata.me/csm/v2/?imdb_id=%s' # %s = imdb id
 
 HTTP_HEADERS = {
@@ -71,12 +71,3 @@ class CommonSenseMediaAgent(Agent.Movies):
 			metadata.tagline = r.json()['description']
 		else:
 			metadata.tagline = None
-
-		# Add Common Sense Media review to reviews
-		metadata.reviews.clear()
-
-		if Prefs['add_review'] and r.json()['review']:
-
-			review = metadata.reviews.new()
-			review.source = 'Common Sense Media'
-			review.text = r.json()['review']

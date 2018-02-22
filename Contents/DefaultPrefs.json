@@ -6,12 +6,6 @@
 		"default": "false"
 	},
 	{
-		"id": "add_review",
-		"label": "Add Common Sense Media review to reviews",
-		"type": "bool",
-		"default": "false"
-	},
-	{
 		"id": "set_unrated",
 		"label": "Set rating as 'CSM Unrated' if no match is found",
 		"type": "bool",
