@@ -1,7 +1,7 @@
 import certifi
 import requests
 
-VERSION = '3.1'
+VERSION = '3.2'
 API_URL = 'https://api.tadata.me/csm/v2/?imdb_id=%s' # %s = imdb id
 
 HTTP_HEADERS = {
