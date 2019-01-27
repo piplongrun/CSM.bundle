@@ -1,3 +1,5 @@
+**This agent is no longer maintained and its backend APIs have been taken offline**
+
 Common Sense Media
 ==================
 <img src="https://img.shields.io/github/release/piplongrun/CSM.bundle.png?style=flat-square">
